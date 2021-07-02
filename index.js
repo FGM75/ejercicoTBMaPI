@@ -1,7 +1,9 @@
+require("dotenv").config();
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 
 const tipoDeTransporte = async () => {
+
     const respuesta = await inquirer.prompt
         (
             [
@@ -29,6 +31,11 @@ const tipoDeTransporte = async () => {
 (async () => {
     const respuesta = await tipoDeTransporte;
     console.log(await tipoDeTransporte());
+  
+  
+  if (respuesta.eleccion === "bus") {
+    console.log(chalk.yellow());
+  }
 
     if (respuesta.eleccion === "metro") {
         const respuestaMetro = async () => {
